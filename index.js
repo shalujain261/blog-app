@@ -6,8 +6,6 @@ const mongoose = require('mongoose');
 const app = express();
 const port = 8000;
 
-
-
 mongoose.connect('mongodb+srv://jshalu142_db_user:qpdgq0yL5BcojBhM@cluster0.yvx58xi.mongodb.net/?appName=Cluster0').then(() => {
   console.log('Database is connected');
 }).catch(err => {
@@ -16,6 +14,7 @@ mongoose.connect('mongodb+srv://jshalu142_db_user:qpdgq0yL5BcojBhM@cluster0.yvx5
 
 app.set('view engine', 'ejs');
 app.set('views', path.resolve('./views'))
+app.use(express.urlencoded({extended: false }))
 
 app.use('/user', userRoutes);
 
